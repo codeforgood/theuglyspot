@@ -1,0 +1,14 @@
+<section data-ng-controller="SpotsController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Spots</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="spot in spots" data-ng-href="#!/spots/{{spot._id}}" class="list-group-item">
+            <small class="list-group-item-text">{{spot.created | date:'medium'}} / {{spot.user.displayName}}</small>
+            <h4 class="list-group-item-heading">{{spot.name}}</h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!spots.$resolved || spots.length">
+    	No Spots yet, why don't you <a href="/#!/spots/create">create one</a>?
+    </div>
+</section>
